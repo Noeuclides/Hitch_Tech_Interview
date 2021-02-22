@@ -1,4 +1,3 @@
-
 """
     First Part: Fix it.
 
@@ -9,19 +8,21 @@
     Some errors can also be when calling the methods.
 """
 
+
 class failingClass():
 
     def __init__(self):
-        self.aList = [1, 2, 3, 4, 5, 6, 7]
-        self.aDict = {'doNotDeleteMe': 1337, 'capital': 1336}
+        self.aList = [1, 2, 3, 4, 5]
+        self.aDict = {'doNotDeleteMe': 1337, }
 
     def addNewList(self):
         """
         addNewList - this method adds 4 new elements to the instance list
                      aList
         """
-        self.aList.append([6, 7, 8, 9])
-    
+        new_elements = [6, 7, 8, 9]
+        self.aList += new_elements
+
     def checkKey(self, key):
         """
         checkKey - this method verifies if a key exists within the instance
@@ -30,10 +31,9 @@ class failingClass():
 
         Return: True if key exists, False otherwise
         """
-        if self.aDict[key] is None:
-            return False
-        
-        return True
+        if not (isinstance(key, str) or isinstance(key, int)):
+            raise TypeError('key must be an integer or a string')
+        return True if self.aDict.get(key) else False
 
     @staticmethod
     def sumOfThree(a, b, c):
@@ -43,17 +43,19 @@ class failingClass():
         @b: second integer in the sum
         @c: thrid integer in the sum
         """
+        if not all(isinstance(elem, int) for elem in [a, b, c]):
+            raise TypeError('Every element has to be an integer')
         return a + b + c
-    
+
     def fillaDict(self, numbers):
         """
         fillaDict - adds to the instance dictionary aDict all the
                     key-values from the dictionary numbers.
         @numbers: dictionary to be use to fill the instance dictionary
         """
-        aDict = numbers
-
-
+        if not isinstance(numbers, dict):
+            TypeError('Input has to be a dictionary')
+        self.aDict.update(numbers)
 
 
 if __name__ == '__main__':
@@ -78,4 +80,4 @@ if __name__ == '__main__':
     print(result)
 
     letsee.fillaDict(numbers)
-
+    print(letsee.aDict)
