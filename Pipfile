@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 pandas = "*"
+xlrd = "*"
+openpyxl = "*"
+numpy = "*"
 
 [dev-packages]
 
