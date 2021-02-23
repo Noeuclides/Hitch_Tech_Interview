@@ -8,6 +8,10 @@ pandas = "*"
 xlrd = "*"
 openpyxl = "*"
 numpy = "*"
+djangorestframework = "*"
+django = "*"
+psycopg2-binary = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 
