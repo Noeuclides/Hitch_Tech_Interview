@@ -45,7 +45,6 @@ python manage.py runserver
 
 The endpoints of the API are:
 - api/player
-- api/player/create
 - api/player/retrieve_update_destroy/<int:pk>
 - api/team
 - api/position
