@@ -2,20 +2,19 @@ from .base_views import GeneralListApiView
 from rest_framework import generics
 from .serializers import (
     PlayerSerializer, TeamSerializer, PositionSerializer,
-    CollegeSerializer, PlayerCreationSerializer
+    CollegeSerializer
 )
 
 
-class PlayerListAPIView(GeneralListApiView):
+class PlayerListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = PlayerSerializer
 
-
-class PlayerCreateAPIView(generics.CreateAPIView):
-    serializer_class = PlayerCreationSerializer
+    def get_queryset(self, pk=None):
+        return self.get_serializer().Meta.model.objects.all()
 
 
 class PlayerRetrieveUpdateDestroyApiView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = PlayerCreationSerializer
+    serializer_class = PlayerSerializer
 
     def get_queryset(self, pk=None):
         return self.get_serializer().Meta.model.objects.all()

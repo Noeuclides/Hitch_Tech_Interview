@@ -1,13 +1,12 @@
 from django.urls import path
 
 from .views import (
-    PlayerListAPIView, TeamListAPIView, PositionListAPIView, CollegeListAPIView,
-    PlayerCreateAPIView, PlayerRetrieveUpdateDestroyApiView
+    TeamListAPIView, PositionListAPIView, CollegeListAPIView,
+    PlayerListCreateAPIView, PlayerRetrieveUpdateDestroyApiView
 )
 
 urlpatterns = [
-    path('player/', PlayerListAPIView.as_view(), name='player'),
-    path('player/create', PlayerCreateAPIView.as_view(), name='player_create'),
+    path('player/', PlayerListCreateAPIView.as_view(), name='player'),
     path('player/retrieve_update_destroy/<int:pk>',
          PlayerRetrieveUpdateDestroyApiView.as_view(), name='player_retrieve_update_destroy'),
     path('team/', TeamListAPIView.as_view(), name='team'),
