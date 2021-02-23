@@ -14,17 +14,22 @@ pipenv install
 pipenv shell
 ```
 
+### Usage
+
 1. FixIt:
-In the root directory is a file called FixIt.py that has a debugged code for some class methods and its calls.
+In the root directory is a file called FixIT.py that has a debugged code for some class methods and its calls.
+```bash
+python fixIT.py
+```
 
 2. pandasPractice:
 In the directory inside the django project hitch_api, there is another directory called scripts that has the pandasPractice.py file that has processing data with pandas of a excel files (scripts/data dir).
+```bash
+python hitch_api/scripts/pandasPractice.py 
+```
 
 3. API:
 The hitch_api directory contains the django project for the api based on the datasets on the scripts/data dir.
-
-
-### Usage
 After activate the virtualenv run the following commands:
 
 ```bash
