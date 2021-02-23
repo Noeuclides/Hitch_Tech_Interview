@@ -1,5 +1,6 @@
 from .base_views import GeneralListApiView
 from rest_framework import generics
+from .pagination import CustomPagination
 from .serializers import (
     PlayerSerializer, TeamSerializer, PositionSerializer,
     CollegeSerializer
@@ -8,6 +9,7 @@ from .serializers import (
 
 class PlayerListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = PlayerSerializer
+    pagination_class = CustomPagination
 
     def get_queryset(self, pk=None):
         return self.get_serializer().Meta.model.objects.all()
